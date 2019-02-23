@@ -22,16 +22,16 @@ INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\Androi
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
+INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
+INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
+INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
+INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		ADDED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:15-44
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
+		ADDED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
-		ADDED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml:7:5-47
+		ADDED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
 		INJECTED from D:\Project\AndroidProject\Mytest2\openCVLibrary341\src\main\AndroidManifest.xml
