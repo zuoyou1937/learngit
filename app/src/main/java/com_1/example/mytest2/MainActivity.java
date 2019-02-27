@@ -3,11 +3,13 @@ package com.example.mytest2;
 
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
+import org.opencv.core.*;
+import org.opencv.imgproc.Imgproc;
+
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.BaseLoaderCallback;
 
 import android.app.Activity;
 import android.view.View;
@@ -21,14 +23,30 @@ import android.widget.Toast;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends Activity implements CvCameraViewListener2,OnClickListener{
+import java.io.File;
+import java.text.SimpleDateFormat;
+
+import org.opencv.core.*;
+
+
+
+
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
+import org.opencv.imgcodecs.Imgcodecs;
+//import org.opencv.highgui.HighGui;
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
+
+
+public class MainActivity extends Activity implements CvCameraViewListener2{
 
     private static final String TAG = "OpenCameraActivity";
-
-    private EditText input;
-    private Button enter;
-
-
 
 
 
@@ -39,7 +57,10 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
 
     private Mat mRgba;
     private Mat mFlipRgba;
-
+    private Mat mGray;
+    private Mat mGuss;
+    private Mat mThreshould;
+  //  private Mat inter;
     private CameraBridgeViewBase mOpenCvCameraView;
 
     public MainActivity() {
@@ -60,43 +81,18 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
         //initView();
         //enter.setOnClickListener(this);
 
-       mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.fd_activity_surface_view);
+        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.fd_activity_surface_view);
         mOpenCvCameraView.enableView();//
         mOpenCvCameraView.setCvCameraViewListener(this);
         mOpenCvCameraView.setCameraIndex(CameraBridgeViewBase.CAMERA_ID_BACK);
         //FRONT 前置摄像头 CAMERA_ID_BACK为后置摄像头
 
     }
-   /* private void initView(){
-        input=(EditText)findViewById(R.id.input);
-        enter=(Button)findViewById(R.id.enter);
-    }*/
-    public void onClick(View v){
-       /* switch(v.getId()){
-            case R.id.enter:
-                Toast.makeText(this, input.getText().toString(), Toast.LENGTH_LONG).show();
-                break;
-            default:
-                break;
-        }*/
-    }
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    /* private void initView(){
+         input=(EditText)findViewById(R.id.input);
+         enter=(Button)findViewById(R.id.enter);
+     }*/
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @Override
     public void onPause() {
@@ -107,6 +103,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
 
     @Override
     public void onResume() {
+
         super.onResume();
     }
 
@@ -118,6 +115,10 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
     public void onCameraViewStarted(int width, int height) {
         mRgba = new Mat();
         mFlipRgba = new Mat();
+        mGray=new Mat();
+        mGuss=new Mat();
+        mThreshould=new Mat();
+
 
     }
 
@@ -127,9 +128,14 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
         mRgba = inputFrame.rgba();//注意
-        //Core.flip(mRgba, mFlipRgba, -1);
-        //return mFlipRgba;
-        return mRgba;
+       // Core.flip(mRgba, mFlipRgba, 1);
+       // Core.flip(mFlipRgba, mFlipRgba, 1);
+        //inter = new Mat(mRgba.width(), mRgba.height(), CvType.CV_8UC4);
+        Imgproc.cvtColor(mRgba,mGray,Imgproc.COLOR_RGB2GRAY);
+        Imgproc.GaussianBlur(mGray,mGuss, new Size(5,5), 0);
+        Imgproc.threshold(mGuss,mThreshould,0,255,Imgproc.THRESH_BINARY+Imgproc.THRESH_OTSU);
+        return mThreshould;
+   //     return mGuss;
     }
 
     @Override
@@ -145,4 +151,3 @@ public class MainActivity extends Activity implements CvCameraViewListener2,OnCl
     }
 
 }
-

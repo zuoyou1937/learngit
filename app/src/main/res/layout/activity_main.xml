@@ -13,17 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <EditText
-        android:id="@+id/et_user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入用户名..."
-        android:imeOptions="actionNext"
-        android:inputType="text"
-        android:textColorHint="#95A1AA"
-        />
-
-
-
 
 </android.support.constraint.ConstraintLayout>
+
+
